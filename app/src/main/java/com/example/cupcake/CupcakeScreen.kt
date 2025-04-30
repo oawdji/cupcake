@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.example.cupcake
 
 import android.content.Context
@@ -47,6 +32,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.cupcake.data.DataSource
 import com.example.cupcake.data.OrderUiState
+import com.example.cupcake.ui.AddAddressScreen
 import com.example.cupcake.ui.OrderSummaryScreen
 import com.example.cupcake.ui.OrderViewModel
 import com.example.cupcake.ui.SelectOptionScreen
@@ -59,6 +45,7 @@ enum class CupcakeScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
     Flavor(title = R.string.choose_flavor),
     Pickup(title = R.string.choose_pickup_date),
+    Address(title = R.string.add_address), // 添加 Address 项
     Summary(title = R.string.order_summary)
 }
 
@@ -150,12 +137,21 @@ fun CupcakeApp(
             composable(route = CupcakeScreen.Pickup.name) {
                 SelectOptionScreen(
                     subtotal = uiState.price,
-                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Summary.name) },
+                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Address.name) }, // 修改为跳转到 Address 页面
                     onCancelButtonClicked = {
                         cancelOrderAndNavigateToStart(viewModel, navController)
                     },
                     options = uiState.pickupOptions,
                     onSelectionChanged = { viewModel.setDate(it) },
+                    modifier = Modifier.fillMaxHeight()
+                )
+            }
+            composable(route = CupcakeScreen.Address.name) {
+                AddAddressScreen(
+                    onNextButtonClicked = { address ->
+                        viewModel.setAddress(address)
+                        navController.navigate(CupcakeScreen.Summary.name)
+                    },
                     modifier = Modifier.fillMaxHeight()
                 )
             }

@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.example.cupcake.ui
 
 import androidx.lifecycle.ViewModel
@@ -33,8 +18,8 @@ private const val PRICE_PER_CUPCAKE = 2.00
 private const val PRICE_FOR_SAME_DAY_PICKUP = 3.00
 
 /**
- * [OrderViewModel] holds information about a cupcake order in terms of quantity, flavor, and
- * pickup date. It also knows how to calculate the total price based on these order details.
+ * [OrderViewModel] holds information about a cupcake order in terms of quantity, flavor,
+ * pickup date and address. It also knows how to calculate the total price based on these order details.
  */
 class OrderViewModel : ViewModel() {
 
@@ -75,6 +60,15 @@ class OrderViewModel : ViewModel() {
                 date = pickupDate,
                 price = calculatePrice(pickupDate = pickupDate)
             )
+        }
+    }
+
+    /**
+     * Set the [address] for this order's state.
+     */
+    fun setAddress(address: String) {
+        _uiState.update { currentState ->
+            currentState.copy(address = address)
         }
     }
 

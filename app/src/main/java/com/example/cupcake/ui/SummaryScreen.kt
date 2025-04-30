@@ -65,7 +65,8 @@ fun OrderSummaryScreen(
         numberOfCupcakes,
         orderUiState.flavor,
         orderUiState.date,
-        orderUiState.quantity
+        orderUiState.address,
+        orderUiState.price
     )
     val newOrder = stringResource(R.string.new_cupcake_order)
     //Create a list of order summary to display
@@ -75,7 +76,9 @@ fun OrderSummaryScreen(
         // Summary line 2: display selected flavor
         Pair(stringResource(R.string.flavor), orderUiState.flavor),
         // Summary line 3: display selected pickup date
-        Pair(stringResource(R.string.pickup_date), orderUiState.date)
+        Pair(stringResource(R.string.pickup_date), orderUiState.date),
+        // Summary line 4: display address
+        Pair(stringResource(R.string.address_label), orderUiState.address)
     )
 
     Column(

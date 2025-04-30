@@ -39,14 +39,19 @@
     <string name="flavor">口味</string>
     <!-- 取货日期 -->
     <string name="pickup_date">取货日期</string>
+    <!-- 地址 -->
+    <string name="address_label">地址</string>
+    <!-- 添加地址 -->
+    <string name="add_address">添加地址</string>
     <!-- 小计 %s -->
     <string name="subtotal_price">小计 %s</string>
     <!-- 总计 %s -->
     <string name="total_price">总计 %s</string>
     <!-- 新的纸杯蛋糕订单 -->
+    <string name="province_label">选择省份</string>
     <string name="new_cupcake_order">新的纸杯蛋糕订单</string>
-    <!-- 订单详情：数量：%1$s \n口味：%2$s \n取货日期：%3$s \n总计：%4$s \n\n谢谢！ -->
-    <string name="order_details">数量：%1$s \n口味：%2$s \n取货日期：%3$s \n总计：%4$s \n\n谢谢！</string>
+    <!-- 订单详情：数量：%1$s \n口味：%2$s \n取货日期：%3$s \n地址：%4$s \n总计：%5$s \n\n谢谢！ -->
+    <string name="order_details">数量：%1$s \n口味：%2$s \n取货日期：%3$s \n地址：%4$s \n总计：%5$s \n\n谢谢！</string>
     <!-- 返回按钮 -->
     <string name="back_button">返回</string>
     <plurals name="cupcakes">
