@@ -35,6 +35,9 @@ fun AddAddressScreen(
     var selectedProvince by remember { mutableStateOf("") }
     var address by remember { mutableStateOf("") }
 
+    // 检查地址信息是否都已填写
+    val isAddressValid = selectedProvince.isNotBlank() && address.isNotBlank()
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -99,7 +102,9 @@ fun AddAddressScreen(
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = dimensionResource(R.dimen.padding_medium))
+                .padding(top = dimensionResource(R.dimen.padding_medium)),
+            // 根据地址信息是否有效来启用或禁用按钮
+            enabled = isAddressValid
         ) {
             Text(stringResource(R.string.next))
         }
