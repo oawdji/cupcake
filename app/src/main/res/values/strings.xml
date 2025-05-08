@@ -1,26 +1,26 @@
 <resources>
     <!-- 应用名称 -->
-    <string name="app_name">纸杯蛋糕</string>
-    <!-- 订购纸杯蛋糕 -->
-    <string name="order_cupcakes">订购纸杯蛋糕</string>
-    <!-- 一个纸杯蛋糕 -->
-    <string name="one_cupcake">一个纸杯蛋糕</string>
-    <!-- 六个纸杯蛋糕 -->
-    <string name="six_cupcakes">六个纸杯蛋糕</string>
-    <!-- 十二个纸杯蛋糕 -->
-    <string name="twelve_cupcakes">十二个纸杯蛋糕</string>
-    <!-- 选择口味 -->
-    <string name="choose_flavor">选择口味</string>
-    <!-- 香草味 -->
-    <string name="vanilla">香草味</string>
-    <!-- 巧克力味 -->
-    <string name="chocolate">巧克力味</string>
-    <!-- 红丝绒味 -->
-    <string name="red_velvet">红丝绒味</string>
-    <!-- 咸焦糖味 -->
-    <string name="salted_caramel">咸焦糖味</string>
-    <!-- 咖啡味 -->
-    <string name="coffee">咖啡味</string>
+    <string name="app_name">Coffee</string>
+    <!-- 订购咖啡 -->
+    <string name="order_cupcakes">订购咖啡</string>
+    <!-- 美式咖啡 -->
+    <string name="one_cupcake">美式咖啡</string>
+    <!-- 拿铁 -->
+    <string name="six_cupcakes">拿铁</string>
+    <!-- 卡布奇诺 -->
+    <string name="twelve_cupcakes">卡布奇诺</string>
+    <!-- 选择温度 -->
+    <string name="choose_flavor">选择温度</string>
+    <!-- 正常冰 -->
+    <string name="vanilla">正常冰</string>
+    <!-- 少冰 -->
+    <string name="chocolate">少冰</string>
+    <!-- 飞冰 -->
+    <string name="red_velvet">飞冰</string>
+    <!-- 常温 -->
+    <string name="salted_caramel">常温</string>
+    <!-- 加热 -->
+    <string name="coffee">加热</string>
     <!-- 特色口味 -->
     <string name="special_flavor">特色口味</string>
     <!-- 取消 -->
@@ -34,9 +34,9 @@
     <!-- 将订单发送到另一个应用程序 -->
     <string name="send">分享</string>
     <!-- 数量 -->
-    <string name="quantity">数量</string>
+    <string name="quantity">品类</string>
     <!-- 口味 -->
-    <string name="flavor">口味</string>
+    <string name="flavor">温度</string>
     <!-- 取货日期 -->
     <string name="pickup_date">取货日期</string>
     <!-- 地址 -->
