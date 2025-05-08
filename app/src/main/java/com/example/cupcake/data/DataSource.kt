@@ -31,4 +31,12 @@ object DataSource {
         Pair(R.string.six_cupcakes, 6),
         Pair(R.string.twelve_cupcakes, 12)
     )
+
+    val sweet = listOf(
+        R.string.nosugar,
+        R.string.triple_sugar,
+        R.string.five_point_sugar,
+        R.string.seven_point_sugar,
+        R.string.full_sugar
+    )
 }

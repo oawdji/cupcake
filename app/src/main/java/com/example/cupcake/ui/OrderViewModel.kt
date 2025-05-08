@@ -63,6 +63,15 @@ class OrderViewModel : ViewModel() {
         }
     }
 
+    fun setSweet(sweetDate: String) {
+        _uiState.update { currentState ->
+            currentState.copy(
+                date = sweetDate,
+                price = calculatePrice(sweetDate = sweetDate)
+            )
+        }
+    }
+
     /**
      * Set the [address] for this order's state.
      */
@@ -84,7 +93,8 @@ class OrderViewModel : ViewModel() {
      */
     private fun calculatePrice(
         quantity: Int = _uiState.value.quantity,
-        pickupDate: String = _uiState.value.date
+        sweetDate: String = _uiState.value.sweet,
+        pickupDate: String = _uiState.value.date,
     ): String {
         var calculatedPrice = quantity * PRICE_PER_CUPCAKE
         // If the user selected the first option (today) for pickup, add the surcharge

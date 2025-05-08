@@ -27,6 +27,12 @@
     <string name="cancel">取消</string>
     <!-- 下一步 -->
     <string name="next">下一步</string>
+    <string name="choose_sweet">选择甜度</string>
+    <string name="nosugar">无糖</string>
+    <string name="triple_sugar">三分糖</string>
+    <string name="five_point_sugar">五分糖</string>
+    <string name="seven_point_sugar">七分糖</string>
+    <string name="full_sugar">全糖</string>
     <!-- 选择取货日期 -->
     <string name="choose_pickup_date">选择取货日期</string>
     <!-- 订单摘要 -->

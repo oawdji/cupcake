@@ -45,6 +45,7 @@ enum class CupcakeScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
     Flavor(title = R.string.choose_flavor),
     Pickup(title = R.string.choose_pickup_date),
+    Sweet(title = R.string.choose_sweet), // 新增甜度选择页面
     Address(title = R.string.add_address), // 添加 Address 项
     Summary(title = R.string.order_summary)
 }
@@ -125,7 +126,7 @@ fun CupcakeApp(
                 val context = LocalContext.current
                 SelectOptionScreen(
                     subtotal = uiState.price,
-                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Pickup.name) },
+                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Sweet.name) },
                     onCancelButtonClicked = {
                         cancelOrderAndNavigateToStart(viewModel, navController)
                     },
@@ -134,10 +135,23 @@ fun CupcakeApp(
                     modifier = Modifier.fillMaxHeight()
                 )
             }
+            composable(route = CupcakeScreen.Sweet.name) {
+                val context = LocalContext.current
+                SelectOptionScreen(
+                    subtotal = uiState.price,
+                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Pickup.name) },
+                    onCancelButtonClicked = {
+                        cancelOrderAndNavigateToStart(viewModel, navController)
+                    },
+                    options = DataSource.sweet.map { id -> context.resources.getString(id) },
+                    onSelectionChanged = { viewModel.setSweet(it) },
+                    modifier = Modifier.fillMaxHeight()
+                )
+            }
             composable(route = CupcakeScreen.Pickup.name) {
                 SelectOptionScreen(
                     subtotal = uiState.price,
-                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Address.name) }, // 修改为跳转到 Address 页面
+                    onNextButtonClicked = { navController.navigate(CupcakeScreen.Address.name) },
                     onCancelButtonClicked = {
                         cancelOrderAndNavigateToStart(viewModel, navController)
                     },
