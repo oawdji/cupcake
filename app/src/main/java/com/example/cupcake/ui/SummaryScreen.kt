@@ -64,6 +64,7 @@ fun OrderSummaryScreen(
         R.string.order_details,
         numberOfCupcakes,
         orderUiState.flavor,
+        orderUiState.sweet,
         orderUiState.date,
         orderUiState.address,
         orderUiState.price
@@ -75,9 +76,11 @@ fun OrderSummaryScreen(
         Pair(stringResource(R.string.quantity), numberOfCupcakes),
         // Summary line 2: display selected flavor
         Pair(stringResource(R.string.flavor), orderUiState.flavor),
-        // Summary line 3: display selected pickup date
+        // Summary line 3: display selected sweetness
+        Pair(stringResource(R.string.choose_sweet), orderUiState.sweet),
+        // Summary line 4: display selected pickup date
         Pair(stringResource(R.string.pickup_date), orderUiState.date),
-        // Summary line 4: display address
+        // Summary line 5: display address
         Pair(stringResource(R.string.address_label), orderUiState.address)
     )
 

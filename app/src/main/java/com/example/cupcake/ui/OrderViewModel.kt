@@ -63,11 +63,10 @@ class OrderViewModel : ViewModel() {
         }
     }
 
-    fun setSweet(sweetDate: String) {
+    fun setSweet(sweet: String) {
         _uiState.update { currentState ->
             currentState.copy(
-                date = sweetDate,
-                price = calculatePrice(sweetDate = sweetDate)
+                sweet = sweet
             )
         }
     }
