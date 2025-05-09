@@ -107,12 +107,16 @@ class OrderViewModel : ViewModel() {
     /**
      * Returns a list of date options starting with the current date and the following 3 dates.
      */
+    // filePath：cupcake/ui/OrderViewModel.kt
     private fun pickupOptions(): List<String> {
         val dateOptions = mutableListOf<String>()
-        val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
+        // 使用中文环境
+        val locale = Locale("zh", "CN")
+        val formatter = SimpleDateFormat("EEEE M月d日", locale)
         val calendar = Calendar.getInstance()
-        // add current date and the following 3 dates.
-        repeat(4) {
+
+        // 添加当前日期和接下来的7天
+        repeat(8) {
             dateOptions.add(formatter.format(calendar.time))
             calendar.add(Calendar.DATE, 1)
         }

@@ -50,6 +50,7 @@
     <string name="address_label">地址</string>
     <!-- 添加地址 -->
     <string name="add_address">添加地址</string>
+    <string name="city_label">市区</string>
     <!-- 小计 %s -->
     <string name="subtotal_price">小计 %s</string>
     <!-- 总计 %s -->
