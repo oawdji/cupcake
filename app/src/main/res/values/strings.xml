@@ -3,6 +3,7 @@
     <string name="app_name">Coffee</string>
     <!-- 订购咖啡 -->
     <string name="order_cupcakes">订购咖啡</string>
+    <string name="coffee_logo_desc">咖啡logo</string>
     <!-- 美式咖啡 -->
     <string name="americano">美式咖啡</string>
     <!-- 拿铁 -->
