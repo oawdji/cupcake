@@ -39,6 +39,7 @@ import com.example.cupcake.R
 import com.example.cupcake.data.OrderUiState
 import com.example.cupcake.ui.components.FormattedPriceLabel
 import com.example.cupcake.ui.theme.CupcakeTheme
+import com.example.cupcake.data.DataSource
 
 /**
  * This composable expects [orderUiState] that represents the order state, [onCancelButtonClicked]
@@ -54,15 +55,16 @@ fun OrderSummaryScreen(
 ) {
     val resources = LocalContext.current.resources
 
-    val numberOfCupcakes = resources.getQuantityString(
-        R.plurals.cupcakes,
-        orderUiState.quantity,
-        orderUiState.quantity
-    )
+    // 根据产品ID获取产品名称
+    val getProductName = @Composable { productId: Int ->
+        val productNameResId = DataSource.quantityOptions.firstOrNull { it.first == productId }?.second
+        productNameResId?.let { resources.getString(it) } ?: ""
+    }
+    val productName = getProductName(orderUiState.quantity)
     //Load and format a string resource with the parameters.
     val orderSummary = stringResource(
         R.string.order_details,
-        numberOfCupcakes,
+        productName,
         orderUiState.flavor,
         orderUiState.sweet,
         orderUiState.date,
@@ -73,7 +75,7 @@ fun OrderSummaryScreen(
     //Create a list of order summary to display
     val items = listOf(
         // Summary line 1: display selected quantity
-        Pair(stringResource(R.string.quantity), numberOfCupcakes),
+        Pair(stringResource(R.string.quantity), productName),
         // Summary line 2: display selected flavor
         Pair(stringResource(R.string.flavor), orderUiState.flavor),
         // Summary line 3: display selected sweetness

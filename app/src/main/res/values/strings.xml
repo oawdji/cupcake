@@ -4,11 +4,11 @@
     <!-- 订购咖啡 -->
     <string name="order_cupcakes">订购咖啡</string>
     <!-- 美式咖啡 -->
-    <string name="one_cupcake">美式咖啡</string>
+    <string name="americano">美式咖啡</string>
     <!-- 拿铁 -->
-    <string name="six_cupcakes">拿铁</string>
+    <string name="latte">拿铁</string>
     <!-- 卡布奇诺 -->
-    <string name="twelve_cupcakes">卡布奇诺</string>
+    <string name="cappuccino">卡布奇诺</string>
     <!-- 选择温度 -->
     <string name="choose_flavor">选择温度</string>
     <!-- 正常冰 -->
@@ -41,6 +41,7 @@
     <string name="send">分享</string>
     <!-- 数量 -->
     <string name="quantity">品类</string>
+    <string name="productName">%1$</string>
     <!-- 口味 -->
     <string name="flavor">温度</string>
     <!-- 取货日期 -->
@@ -56,8 +57,7 @@
     <!-- 新的纸杯蛋糕订单 -->
     <string name="province_label">选择省份</string>
     <string name="new_cupcake_order">新的纸杯蛋糕订单</string>
-    <!-- 订单详情：数量：%1$s \n口味：%2$s \n取货日期：%3$s \n地址：%4$s \n总计：%5$s \n\n谢谢！ -->
-    <string name="order_details">数量：%1$s \n口味：%2$s \n取货日期：%3$s \n地址：%4$s \n总计：%5$s \n\n谢谢！</string>
+    <string name="order_details">产品: %1$s\n温度: %2$s\n甜度: %3$s\n取货日期: %4$s\n地址: %5$s\n总价: %6$s \n\n谢谢！</string>
     <!-- 返回按钮 -->
     <string name="back_button">返回</string>
     <plurals name="cupcakes">

@@ -10,6 +10,7 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import com.example.cupcake.data.DataSource
 
 /** Price for a single cupcake */
 private const val PRICE_PER_CUPCAKE = 2.00
@@ -32,11 +33,13 @@ class OrderViewModel : ViewModel() {
     /**
      * Set the quantity [numberCupcakes] of cupcakes for this order's state and update the price
      */
-    fun setQuantity(numberCupcakes: Int) {
+    fun setQuantity(productId: Int) {
+        // 从数据源中获取对应的价格
+        val price = DataSource.quantityOptions.firstOrNull { it.first == productId }?.third ?: 0.0
         _uiState.update { currentState ->
             currentState.copy(
-                quantity = numberCupcakes,
-                price = calculatePrice(quantity = numberCupcakes)
+                quantity = productId, // 这里quantity存储产品ID而不是数量
+                price = calculatePrice(productId = productId)
             )
         }
     }
@@ -91,17 +94,14 @@ class OrderViewModel : ViewModel() {
      * Returns the calculated price based on the order details.
      */
     private fun calculatePrice(
-        quantity: Int = _uiState.value.quantity,
-        sweetDate: String = _uiState.value.sweet,
+        productId: Int = _uiState.value.quantity, // 产品ID
         pickupDate: String = _uiState.value.date,
     ): String {
-        var calculatedPrice = quantity * PRICE_PER_CUPCAKE
-        // If the user selected the first option (today) for pickup, add the surcharge
-        if (pickupOptions()[0] == pickupDate) {
-            calculatedPrice += PRICE_FOR_SAME_DAY_PICKUP
-        }
-        val formattedPrice = NumberFormat.getCurrencyInstance().format(calculatedPrice)
-        return formattedPrice
+        // 从数据源中获取产品价格
+        val basePrice = DataSource.quantityOptions.firstOrNull { it.first == productId }?.third ?: 0.0
+        // 计算总价
+        var totalPrice = basePrice
+        return NumberFormat.getCurrencyInstance().format(totalPrice)
     }
 
     /**

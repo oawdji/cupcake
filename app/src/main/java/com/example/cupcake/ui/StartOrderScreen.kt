@@ -48,7 +48,7 @@ import com.example.cupcake.ui.theme.CupcakeTheme
  */
 @Composable
 fun StartOrderScreen(
-    quantityOptions: List<Pair<Int, Int>>,
+    quantityOptions: List<Triple<Int, Int, Double>>,
     onNextButtonClicked: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -59,32 +59,14 @@ fun StartOrderScreen(
         Column(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
-        ) {
-            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
-            Image(
-                painter = painterResource(R.drawable.coffee_logo),
-                contentDescription = null,
-                modifier = Modifier.width(600.dp)
-            )
-            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
-            Text(
-                text = stringResource(R.string.order_cupcakes),
-                style = MaterialTheme.typography.headlineSmall
-            )
-            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
-        }
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(
                 dimensionResource(id = R.dimen.padding_medium)
             )
         ) {
             quantityOptions.forEach { item ->
                 SelectQuantityButton(
-                    labelResourceId = item.first,
-                    onClick = { onNextButtonClicked(item.second) },
+                    labelResourceId = item.second, // 使用产品名称资源ID
+                    onClick = { onNextButtonClicked(item.first) }, // 传递产品ID
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
